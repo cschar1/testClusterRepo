@@ -17,8 +17,13 @@ namespace WindowsFormsApplication1
             ClickCount = 0;
         }
         int ClickCount;
+
+       
         private void button1_Click(object sender, EventArgs e)
         {
+            //Button Code to count number of clicks up to a limit of 20
+            //Added in the ImprovedButton branch
+
             ClickCount++;
             if (ClickCount >= 20){
                 button1.Text = "clicked";
