@@ -54,10 +54,20 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="LoadingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoadingForm.Designer.cs">
+      <DependentUpon>LoadingForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoadingForm.resx">
+      <DependentUpon>LoadingForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -80,6 +90,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\WindowsFormsControlLibrary1\WindowsFormsControlLibrary1\WindowsFormsControlLibrary1.csproj">
+      <Project>{3937F1A0-DE87-4E0B-8CA9-64650DDA44E1}</Project>
+      <Name>WindowsFormsControlLibrary1</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\WindowsFormsControlLibrary2\WindowsFormsControlLibrary2\WindowsFormsControlLibrary2.csproj">
       <Project>{084300A6-885A-453D-9E00-49045C996635}</Project>
       <Name>WindowsFormsControlLibrary2</Name>
