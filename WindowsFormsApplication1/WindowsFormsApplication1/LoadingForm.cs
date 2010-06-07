@@ -17,8 +17,12 @@ namespace WindowsFormsApplication1
         public LoadingForm()
         {
             InitializeComponent();
-            loader = new LoadingControl(Color.DarkOliveGreen,
-                Color.LightGoldenrodYellow, 150);
+            loader = new LoadingControl(Color.Honeydew,
+                Color.Transparent, 150);
+
+
+            this.TransparencyKey = Color.LightGray;
+            this.BackColor = Color.LightGray;
 
             this.Controls.Add(loader);
             loader.Show();
