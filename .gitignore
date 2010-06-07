@@ -1,6 +1,7 @@
 obj/
 bin/
 
+#Ignore bin and obj
 
 ##depth 2
 
