@@ -8,8 +8,8 @@ bin/
 **/obj/*.*
 
 ##depth 3
-**/*/bin/
-**/*/obj/
+**/*/bin/*.*
+**/*/obj/*.*
 
 _ReSharper.*
 *.csproj.user
