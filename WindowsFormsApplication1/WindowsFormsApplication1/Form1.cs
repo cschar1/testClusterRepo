@@ -13,21 +13,30 @@ namespace WindowsFormsApplication1
     {
         public Form1()
         {
+            //
+            // Commit safety 1
+            //
             InitializeComponent();
-            
-            Clicked = false;
+            ClickCount = 0;
 
             //Console commit done from GITHUB
             Console.WriteLine("Form created ");
         }
-        Boolean Clicked;
+        int ClickCount;
+
+       
         private void button1_Click(object sender, EventArgs e)
         {
-            Clicked = !Clicked;
-            if (Clicked)
-                button1.Text += "1";
-            else 
+            //Button Code to count number of clicks up to a limit of 20
+            //Added in the ImprovedButton branch
+
+            ClickCount++;
+            if (ClickCount >= 20){
                 button1.Text = "clicked";
+                 ClickCount = 0;
+             }
+            else
+                button1.Text = "clicked" + ClickCount;    
         }
     }
 }
