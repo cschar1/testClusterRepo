@@ -23,6 +23,9 @@ namespace WindowsFormsApplication1
             Console.WriteLine("Form created ");
         }
         int ClickCount;
+        //
+        // added in improveButton
+        //
 
        
         private void button1_Click(object sender, EventArgs e)

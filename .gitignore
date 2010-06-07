@@ -1,10 +1,18 @@
 obj/
 bin/
+
+
+##depth 2
+
 **/bin/*.*
 **/obj/*.*
+
+##depth 3
+**/*/bin/*.*
+**/*/obj/*.*
+
 _ReSharper.*
 *.csproj.user
-*.csproj
 *.resharper.user
 *.resharper
 *.suo
