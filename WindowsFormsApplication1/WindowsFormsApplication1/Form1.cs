@@ -14,16 +14,18 @@ namespace WindowsFormsApplication1
         public Form1()
         {
             InitializeComponent();
-            Clicked = false;
+            ClickCount = 0;
         }
-        Boolean Clicked;
+        int ClickCount;
         private void button1_Click(object sender, EventArgs e)
         {
-            Clicked = !Clicked;
-            if (Clicked)
-                button1.Text += "1";
-            else 
+            ClickCount++;
+            if (ClickCount >= 20){
                 button1.Text = "clicked";
+                 ClickCount = 0;
+             }
+            else
+                button1.Text = "clicked" + ClickCount;    
         }
     }
 }
