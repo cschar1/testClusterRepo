@@ -13,7 +13,6 @@ bin/
 
 _ReSharper.*
 *.csproj.user
-*.csproj
 *.resharper.user
 *.resharper
 *.suo
