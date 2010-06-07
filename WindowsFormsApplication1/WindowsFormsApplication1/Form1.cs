@@ -13,6 +13,9 @@ namespace WindowsFormsApplication1
     {
         public Form1()
         {
+            //
+            // Commit safety 1
+            //
             InitializeComponent();
             ClickCount = 0;
         }
