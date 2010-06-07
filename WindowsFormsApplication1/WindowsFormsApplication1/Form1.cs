@@ -18,6 +18,9 @@ namespace WindowsFormsApplication1
             //
             InitializeComponent();
             ClickCount = 0;
+
+            //Console commit done from GITHUB
+            Console.WriteLine("Form created ");
         }
         int ClickCount;
 
