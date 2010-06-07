@@ -1,0 +1,4 @@
+
+[submodule "libraries"]
+	path = libraries
+	url = git@github.com:cschar1/shapeLibrary.git
