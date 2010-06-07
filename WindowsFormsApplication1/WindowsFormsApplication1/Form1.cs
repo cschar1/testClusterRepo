@@ -14,7 +14,11 @@ namespace WindowsFormsApplication1
         public Form1()
         {
             InitializeComponent();
+            
             Clicked = false;
+
+            //Console commit done from GITHUB
+            Console.WriteLine("Form created ");
         }
         Boolean Clicked;
         private void button1_Click(object sender, EventArgs e)
