@@ -74,5 +74,25 @@ namespace CalculatorForm
             }
         }
 
+        private void addButton_Click(object sender, EventArgs e)
+        {
+            inputTextBox.Text += "+";
+        }
+
+        private void subtractButton_Click(object sender, EventArgs e)
+        {
+            inputTextBox.Text += "-";
+        }
+
+        private void multiplyButton_Click(object sender, EventArgs e)
+        {
+            inputTextBox.Text += "*";
+        }
+
+        private void divideButton_Click(object sender, EventArgs e)
+        {
+            inputTextBox.Text += "/";
+        }
+
     }
 }

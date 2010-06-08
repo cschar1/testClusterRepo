@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.addButton = new System.Windows.Forms.Button();
             this.EvaluateButton = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -42,6 +43,9 @@
             this.label5 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.subtractButton = new System.Windows.Forms.Button();
+            this.multiplyButton = new System.Windows.Forms.Button();
+            this.divideButton = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
@@ -51,6 +55,10 @@
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.divideButton);
+            this.groupBox1.Controls.Add(this.multiplyButton);
+            this.groupBox1.Controls.Add(this.subtractButton);
+            this.groupBox1.Controls.Add(this.addButton);
             this.groupBox1.Controls.Add(this.EvaluateButton);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
@@ -64,6 +72,16 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "groupBox1";
+            // 
+            // addButton
+            // 
+            this.addButton.Location = new System.Drawing.Point(18, 94);
+            this.addButton.Name = "addButton";
+            this.addButton.Size = new System.Drawing.Size(37, 31);
+            this.addButton.TabIndex = 6;
+            this.addButton.Text = "+";
+            this.addButton.UseVisualStyleBackColor = true;
+            this.addButton.Click += new System.EventHandler(this.addButton_Click);
             // 
             // EvaluateButton
             // 
@@ -178,7 +196,37 @@
             this.numericUpDown1.Size = new System.Drawing.Size(120, 20);
             this.numericUpDown1.TabIndex = 11;
             // 
-            // Form1
+            // subtractButton
+            // 
+            this.subtractButton.Location = new System.Drawing.Point(18, 131);
+            this.subtractButton.Name = "subtractButton";
+            this.subtractButton.Size = new System.Drawing.Size(37, 33);
+            this.subtractButton.TabIndex = 7;
+            this.subtractButton.Text = "-";
+            this.subtractButton.UseVisualStyleBackColor = true;
+            this.subtractButton.Click += new System.EventHandler(this.subtractButton_Click);
+            // 
+            // multiplyButton
+            // 
+            this.multiplyButton.Location = new System.Drawing.Point(61, 94);
+            this.multiplyButton.Name = "multiplyButton";
+            this.multiplyButton.Size = new System.Drawing.Size(37, 31);
+            this.multiplyButton.TabIndex = 8;
+            this.multiplyButton.Text = "*";
+            this.multiplyButton.UseVisualStyleBackColor = true;
+            this.multiplyButton.Click += new System.EventHandler(this.multiplyButton_Click);
+            // 
+            // divideButton
+            // 
+            this.divideButton.Location = new System.Drawing.Point(61, 132);
+            this.divideButton.Name = "divideButton";
+            this.divideButton.Size = new System.Drawing.Size(37, 32);
+            this.divideButton.TabIndex = 9;
+            this.divideButton.Text = "/";
+            this.divideButton.UseVisualStyleBackColor = true;
+            this.divideButton.Click += new System.EventHandler(this.divideButton_Click);
+            // 
+            // calcForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -190,7 +238,7 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.groupBox1);
-            this.Name = "Form1";
+            this.Name = "calcForm";
             this.Text = "Calculator Form";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -216,6 +264,10 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.Button addButton;
+        private System.Windows.Forms.Button divideButton;
+        private System.Windows.Forms.Button multiplyButton;
+        private System.Windows.Forms.Button subtractButton;
     }
 }
 
