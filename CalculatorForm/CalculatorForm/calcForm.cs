@@ -74,6 +74,9 @@ namespace CalculatorForm
             }
         }
 
+
+#region ButtonInput
+
         private void addButton_Click(object sender, EventArgs e)
         {
             inputTextBox.Text += "+";
@@ -93,6 +96,71 @@ namespace CalculatorForm
         {
             inputTextBox.Text += "/";
         }
+
+        private void Num1Button_Click(object sender, EventArgs e)
+        {
+            inputTextBox.Text += "1";
+        }
+
+        private void Num2Button_Click(object sender, EventArgs e)
+        {
+            inputTextBox.Text += "2";
+        }
+
+        private void Num3Button_Click(object sender, EventArgs e)
+        {
+            inputTextBox.Text += "3";
+        }
+
+        private void Num4Button_Click(object sender, EventArgs e)
+        {
+            inputTextBox.Text += "4";
+        }
+
+        private void Num5Button_Click(object sender, EventArgs e)
+        {
+            inputTextBox.Text += "5";
+        }
+
+        private void Num6Button_Click(object sender, EventArgs e)
+        {
+            inputTextBox.Text += "6";
+        }
+
+        private void Num7Button_Click(object sender, EventArgs e)
+        {
+            inputTextBox.Text += "7";
+        }
+
+        private void Num8Button_Click(object sender, EventArgs e)
+        {
+            inputTextBox.Text += "8";
+        }
+
+        private void Num9Button_Click(object sender, EventArgs e)
+        {
+            inputTextBox.Text += "9";
+        }
+
+        private void Num0Button_Click(object sender, EventArgs e)
+        {
+            inputTextBox.Text += "0";
+        }
+
+        private void decimalButton_Click(object sender, EventArgs e)
+        {
+            inputTextBox.Text += ".";
+        }
+
+        private void ExponentButton_Click(object sender, EventArgs e)
+        {
+            inputTextBox.Text += "^";
+        }
+
+
+#endregion
+
+       
 
     }
 }
