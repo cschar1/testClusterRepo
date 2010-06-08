@@ -158,9 +158,17 @@ namespace CalculatorForm
         }
 
 
-#endregion
+        private void RightBracketButton_Click(object sender, EventArgs e)
+        {
+            inputTextBox.Text += "(";
+        }
 
-       
+        private void LeftBracketButton_Click(object sender, EventArgs e)
+        {
+            inputTextBox.Text += ")";
+        }
+
+#endregion
 
     }
 }
