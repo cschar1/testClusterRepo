@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsFormsControlLibrary2
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsFormsControlLibrary1", "..\WindowsFormsControlLibrary1\WindowsFormsControlLibrary1\WindowsFormsControlLibrary1.csproj", "{3937F1A0-DE87-4E0B-8CA9-64650DDA44E1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalculatorForm", "..\CalculatorForm\CalculatorForm\CalculatorForm.csproj", "{BF631317-002A-4DFF-BE0C-B2587BDBDFEF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,6 +27,10 @@ Global
 		{3937F1A0-DE87-4E0B-8CA9-64650DDA44E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3937F1A0-DE87-4E0B-8CA9-64650DDA44E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3937F1A0-DE87-4E0B-8CA9-64650DDA44E1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BF631317-002A-4DFF-BE0C-B2587BDBDFEF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF631317-002A-4DFF-BE0C-B2587BDBDFEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF631317-002A-4DFF-BE0C-B2587BDBDFEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF631317-002A-4DFF-BE0C-B2587BDBDFEF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

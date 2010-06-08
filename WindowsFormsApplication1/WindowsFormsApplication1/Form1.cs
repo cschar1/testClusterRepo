@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using WindowsFormsControlLibrary1;
+using CalculatorForm;
 
 namespace WindowsFormsApplication1
 {
@@ -78,6 +79,14 @@ namespace WindowsFormsApplication1
                 myLoaderForm.Dispose();
             }
             
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            calcForm aCalcForm = new calcForm();
+
+            aCalcForm.Show();
+            aCalcForm.Location = new Point(400, 100);
         }
     }
 }
