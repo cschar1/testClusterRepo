@@ -21,6 +21,10 @@ namespace WindowsFormsApplication1
             //
             //
 
+            //
+            //testing PuTTy
+            //
+
             //Double buffered activated in form.designer
             //this.TransparencyKey = Color.LightGray;
             this.BackColor = Color.LightGray;
