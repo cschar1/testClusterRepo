@@ -8,6 +8,8 @@ using System.Text;
 using System.Windows.Forms;
 using WindowsFormsControlLibrary1;
 using CalculatorForm;
+using Microsoft.VisualBasic.ApplicationServices;
+using System.Threading;
 
 namespace WindowsFormsApplication1
 {
@@ -25,11 +27,11 @@ namespace WindowsFormsApplication1
 
             //Console commit done from GITHUB
             Console.WriteLine("Form created ");
-
-            
-
-
         }
+
+
+
+
         int ClickCount;
         //
         // added in improveButton
@@ -52,23 +54,27 @@ namespace WindowsFormsApplication1
 
         private void button2_Click(object sender, EventArgs e)
         {
-            //added in main branch 
-            if (myLoaderForm != null)
+            Console.WriteLine("Components size" + this.Controls.Count);
+
+            bool done = false;
+            ThreadPool.QueueUserWorkItem((x) =>
             {
-                myLoaderForm.Dispose();
-            }
+                using (var splashForm = new LoadingForm())
+                {
+                    
+                    splashForm.Show();
+                    while (!done)
+                        Application.DoEvents();
 
-            myLoaderForm = new LoadingForm();
-            myLoaderForm.Show();
+                    splashForm.Close();
+                }
+            });
 
-            ////Delay a while for loader to run
-            //for (int i = 0; i < 30; i++)
-            //{
-            //    for (int j = 0; j < 30; j++)
-            //    {
-            //        Console.WriteLine("Waiting with loader" + i + " " + j);
-            //    }
-            //}
+            //Simulate WOrk
+            Thread.Sleep(1000);
+
+            //end loading screen
+            done = true;
         }
 
 
@@ -88,5 +94,33 @@ namespace WindowsFormsApplication1
             aCalcForm.Show();
             aCalcForm.Location = new Point(400, 100);
         }
+
+        //private void Form1_Load(object sender, EventArgs e)
+        //{
+        //    Hide();
+        //    bool done = false;
+        //    ThreadPool.QueueUserWorkItem((x) =>
+        //        {
+        //            using (var splashForm = new LoadingForm())
+        //            {
+        //                splashForm.Show();
+        //                while (!done)
+        //                    Application.DoEvents();
+                        
+        //                splashForm.Close();
+        //            }
+        //        });
+
+        //    for (int i = 0; i < 30; i++)
+        //    {
+        //        for (int j = 0; j < 20; j++)
+        //        {
+        //            Console.WriteLine("working ... " + i + " " + j);
+        //        }
+        //    }
+        //    Console.WriteLine("Done Work.... Showing main form");
+        //    done = true;
+        //    Show();
+        //}
     }
 }

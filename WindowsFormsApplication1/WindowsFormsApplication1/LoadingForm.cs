@@ -17,13 +17,16 @@ namespace WindowsFormsApplication1
         public LoadingForm()
         {
             InitializeComponent();
-            loader = new LoadingControl(Color.Honeydew,
-                Color.Transparent, 150);
+           //
+            //
+            //
 
-
-            this.TransparencyKey = Color.LightGray;
+            //Double buffered activated in form.designer
+            //this.TransparencyKey = Color.LightGray;
             this.BackColor = Color.LightGray;
 
+            loader = new LoadingControl(Color.Honeydew,
+                Color.Transparent, 150);
             this.Controls.Add(loader);
             loader.Show();
             loader.Location = new Point(40, 40);
