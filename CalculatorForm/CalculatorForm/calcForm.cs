@@ -31,28 +31,28 @@ namespace CalculatorForm
                 listBox1.Items.Add(d);
             }
 
-
-
             parser = new ExpressionParser(factoryDataList);
 
         }
 
         private void EvaluateButton_Click(object sender, EventArgs e)
         {
-            tokens = parser.postFixTokenize(inputTextBox.Text);
-            postfixTextBox.Text = displayList(tokens);
+            try
+            {
+                tokens = parser.postFixTokenize(inputTextBox.Text);
+                postfixTextBox.Text = displayList(tokens);
 
-            double tmp = parser.evaluatePostFix(tokens);
-            if (tmp.Equals(Double.NaN))
-            {
-                evaluationTextBox.Text = "variable name not found";
+                double tmp = parser.evaluatePostFix(tokens, 5);
+                if (tmp.Equals(Double.NaN))
+                    evaluationTextBox.Text = "variable name not found";
+                else
+                    evaluationTextBox.Text = tmp.ToString();
             }
-            else
+            catch (Exception ex2)
             {
-                evaluationTextBox.Text = tmp.ToString();
+                MessageBox.Show(ex2.Message);
             }
-            
-            
+  
         }
 
         private string displayList(Queue<Token> q)
@@ -63,6 +63,8 @@ namespace CalculatorForm
             }
             return result;
         }
+
+
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -169,6 +171,13 @@ namespace CalculatorForm
         }
 
 #endregion
+
+        private void inputTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if(e.KeyChar == (char)13 ){
+                this.EvaluateButton.PerformClick();
+            }
+        }
 
     }
 }

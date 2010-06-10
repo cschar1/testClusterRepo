@@ -14,7 +14,8 @@ namespace CalculatorForm
         PRE,                //unimplemented , log(5*2) log 5  log5 log(5^2) log5^2
         POST,
         DI_OP,
-        CLOSE
+        CLOSE,
+        UNRECOGNIZED
     }
 
 
@@ -96,7 +97,8 @@ namespace CalculatorForm
             else{
 
                 Console.WriteLine("Could not regex match next token,");
-                    return null;
+                nextTok.Type = tokenType.UNRECOGNIZED;
+                
             }
               //set values and return token
             
@@ -108,31 +110,74 @@ namespace CalculatorForm
         }
 
 
+        private bool verifyBracketPairs(string input)
+        {
+            int LBCount = 0;
+            int RBCount = 0;
+
+            for(int i = 0 ; i < input.Length ; i ++) 
+            {
+                //If we currently have more closing brackets than opening brackets
+                //the brackets have been input incorrectly
+                if( LBCount < RBCount)
+                    return false;
+
+                if (input[i] == '(')
+                    LBCount++;
+                else if (input[i] == ')')
+                    RBCount++;      
+            }//end for
+
+
+            if( (LBCount - RBCount) == 0 )
+                return true;
+            else
+                return false;
+            
+        }
+
+
+
         public Queue<Token> postFixTokenize(string input)
         {
+
+            if (verifyBracketPairs(input) == false)
+                throw new Exception("Mismatching Brackets ");
+
+            //state that helps verify that the expression alternates between
+            //args and operators ( + , - , * , / )
+            int exprState = 0;
+
             //get rid of whitespace
             input = input.Trim();
-            
-            Token t;
+
+            Token t = null;
             Queue<Token> outputQueue = new Queue<Token>();
             OperatorStack opStack = new OperatorStack();
 
-            while ( (t = getNextToken(input)) != null)
+            while (input.Length != 0 && 
+                (t = getNextToken(input)).Type != tokenType.UNRECOGNIZED )
             {
                 Console.WriteLine("Parsing " + input);
                 
                 switch (t.Type)
                 {
                     case tokenType.ARG_NUM :
-                        outputQueue.Enqueue(t);
+                        assertStateEquals(0, exprState);
+                        exprState = 1;
+                        outputQueue.Enqueue(t); 
                         break;
 
                     case tokenType.ARG_VAR :
+                        assertStateEquals(0, exprState);
+                        exprState = 1;
                         outputQueue.Enqueue(t);
                         break;
 
                     case tokenType.DI_OP :
-                        opStack.pushSpew(outputQueue, t);
+                        assertStateEquals(1, exprState);
+                        exprState = 0;
+                        opStack.pushSpew(outputQueue, t);  
                         break;
 
                     case tokenType.OPEN:
@@ -147,6 +192,8 @@ namespace CalculatorForm
                         break;
 
                     case tokenType.POST:
+                        assertStateEquals(1, exprState);
+                        exprState = 0; 
                         opStack.pushSpew(outputQueue, t);
                         break;
 
@@ -159,6 +206,7 @@ namespace CalculatorForm
                 input = consume(input, t);
                 input = input.Trim();
 
+                #region degbugPrint
 
                 Console.WriteLine(" Parsed " + t.TokenValue + " of type: " + t.Type + "   Remaining input string is ::" + input +"::");
             
@@ -170,18 +218,37 @@ namespace CalculatorForm
                
                 Console.WriteLine();
                 Console.WriteLine("and Current stack is " + opStack.ToString());
-            
+                #endregion
+
             }//end while
 
-            //dump rest of operators on stack to output
-            while (opStack.Count != 0)
+            //if the next token is unrecognized, 
+            //and there is still input, 
+            if (input.Length != 0 && t != null && t.Type == tokenType.UNRECOGNIZED)
             {
-                outputQueue.Enqueue(opStack.pop());
+                throw new Exception("Calculator can only take in Integers , Decimal numbers," +
+                 " + , - , / , * , ^ and variable names in the corresponding list " );
             }
+            else
+            {
+                //dump rest of operators on stack to output
+                while (opStack.Count != 0)
+                    outputQueue.Enqueue(opStack.pop());
 
-
-            return outputQueue;
+                assertStateEquals(1, exprState);
+                return outputQueue;
+            }
         }
+
+        private void assertStateEquals(int state, int stateToCompare)
+        {
+            if (state != stateToCompare)
+            {
+                throw new Exception("Invalid state of expression, make sure to " +
+                    "alternate between args and diadic operators \n state should be : " + state + " \n state is : " + stateToCompare);
+            }
+        }
+
 
         public void addObject(string name, double val)
         {
@@ -202,7 +269,7 @@ namespace CalculatorForm
 
         }
 
-        public double evaluatePostFix(Queue<Token> inputQueue)
+        public double evaluatePostFix(Queue<Token> inputQueue, int significantNumbers)
         {
             Stack<Double> Num_Stack = new Stack<Double>();
             double tmp1;
@@ -276,41 +343,15 @@ namespace CalculatorForm
             }
             //After going through entire Queue, our Num_stack should have 1
             //Element on it, the final result.
-            return Num_Stack.Pop();
+            double element_to_return = Num_Stack.Pop();
+            element_to_return = Math.Round(element_to_return, significantNumbers);
+            return element_to_return;
+       
+            
 
         }//end evaluatePostFix
 
 
     }//end class
-
-
-
-    
-    //struct Token
-    //{
-    //    private tokenType type;
-    //    private int priority;
-    //    private string tokenValue;
-
-    //    public string TokenValue
-    //    {
-    //        get { return tokenValue; }
-    //        set { tokenValue = value; }
-    //    }
-
-    //    public int Priority
-    //    {
-    //        get { return priority; }
-    //        set { priority = value; }
-    //    }
-
-    //    public tokenType Type
-    //    {
-    //        get { return type; }
-    //        set { type = value; }
-    //    }
-                
-
-
-    // }
+   
 }

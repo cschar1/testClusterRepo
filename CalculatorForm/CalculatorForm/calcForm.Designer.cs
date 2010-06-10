@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.LeftBracketButton = new System.Windows.Forms.Button();
+            this.RightBracketButton = new System.Windows.Forms.Button();
             this.ExponentButton = new System.Windows.Forms.Button();
             this.decimalButton = new System.Windows.Forms.Button();
             this.Num0Button = new System.Windows.Forms.Button();
@@ -58,8 +60,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.RightBracketButton = new System.Windows.Forms.Button();
-            this.LeftBracketButton = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
@@ -100,6 +100,26 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "groupBox1";
+            // 
+            // LeftBracketButton
+            // 
+            this.LeftBracketButton.Location = new System.Drawing.Point(213, 123);
+            this.LeftBracketButton.Name = "LeftBracketButton";
+            this.LeftBracketButton.Size = new System.Drawing.Size(37, 30);
+            this.LeftBracketButton.TabIndex = 23;
+            this.LeftBracketButton.Text = ")";
+            this.LeftBracketButton.UseVisualStyleBackColor = true;
+            this.LeftBracketButton.Click += new System.EventHandler(this.LeftBracketButton_Click);
+            // 
+            // RightBracketButton
+            // 
+            this.RightBracketButton.Location = new System.Drawing.Point(213, 85);
+            this.RightBracketButton.Name = "RightBracketButton";
+            this.RightBracketButton.Size = new System.Drawing.Size(37, 31);
+            this.RightBracketButton.TabIndex = 22;
+            this.RightBracketButton.Text = "(";
+            this.RightBracketButton.UseVisualStyleBackColor = true;
+            this.RightBracketButton.Click += new System.EventHandler(this.RightBracketButton_Click);
             // 
             // ExponentButton
             // 
@@ -318,6 +338,7 @@
             this.inputTextBox.Name = "inputTextBox";
             this.inputTextBox.Size = new System.Drawing.Size(201, 20);
             this.inputTextBox.TabIndex = 0;
+            this.inputTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.inputTextBox_KeyPress);
             // 
             // listBox1
             // 
@@ -373,26 +394,6 @@
             this.numericUpDown1.Name = "numericUpDown1";
             this.numericUpDown1.Size = new System.Drawing.Size(120, 20);
             this.numericUpDown1.TabIndex = 11;
-            // 
-            // RightBracketButton
-            // 
-            this.RightBracketButton.Location = new System.Drawing.Point(213, 85);
-            this.RightBracketButton.Name = "RightBracketButton";
-            this.RightBracketButton.Size = new System.Drawing.Size(37, 31);
-            this.RightBracketButton.TabIndex = 22;
-            this.RightBracketButton.Text = "(";
-            this.RightBracketButton.UseVisualStyleBackColor = true;
-            this.RightBracketButton.Click += new System.EventHandler(this.RightBracketButton_Click);
-            // 
-            // LeftBracketButton
-            // 
-            this.LeftBracketButton.Location = new System.Drawing.Point(213, 123);
-            this.LeftBracketButton.Name = "LeftBracketButton";
-            this.LeftBracketButton.Size = new System.Drawing.Size(37, 30);
-            this.LeftBracketButton.TabIndex = 23;
-            this.LeftBracketButton.Text = ")";
-            this.LeftBracketButton.UseVisualStyleBackColor = true;
-            this.LeftBracketButton.Click += new System.EventHandler(this.LeftBracketButton_Click);
             // 
             // calcForm
             // 
